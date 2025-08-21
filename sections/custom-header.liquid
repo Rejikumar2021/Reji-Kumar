@@ -20,9 +20,12 @@
     </div>
     <div class="shop-now-btn">
         {% for block in section.blocks %}
-            {% if block.settings == "gift_button" %}
-                <a href="{{ block.settings.gift_url }}" class="gift-button">
+            {% if block.type == "gift_button" %}
+                <a href="{{ block.settings.gift_url }}">
                     {{ block.settings.url_text }}
+                    <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"/>
+</svg>
                 </a>
             {% endif %}
         {% endfor %}
@@ -38,11 +41,106 @@
         flex-direction: column;
         margin: 0px auto;
     }
+    .ham-logo-container
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        background-color: #F7F7F7;
+        padding-top: 23px;
+        padding-bottom: 23px;
+        padding-left: 16px;
+
+    }
+    .site-logo
+    {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .site-logo img 
+    {
+        max-width:152px;
+    }
+    .announcement,.shop-now-btn
+    {
+        display:none;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        font-family: jost;
+        background-color: #F2F2F2;
+    }
+    .announcement 
+    {
+       font-weight: 400;
+        color: #000;
+        font-size: 16px;
+        padding-top: 25px;
+        padding-bottom: 15px;
+    }
+
+    .hamburger 
+    {
+        width:10%;
+    }
+    .hamburger span svg 
+    {
+    max-width:18px;
+}
     .icon-close 
     {
-        display:"none";
+        display: none;
     }
+    .shop-now-btn 
+    {
+        padding-bottom:25px;
+    }
+   .shop-now-btn a {
+    position: relative;             
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: jost;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    background-color: #FFF544;
+    padding: 11px 20px;
+    text-transform: uppercase;
+    overflow: hidden;               
+    z-index: 1;
+}
+.shop-now-btn a svg 
+{
+    fill:#000000;
+}
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+       document.querySelector('.icon-hamburger').addEventListener('click',function(){
+       document.querySelector('.icon-hamburger').style.display = 'none';
+        document.querySelector('.icon-close').style.display = 'inline';
+        document.querySelector('.announcement').style.display = 'flex';
+        document.querySelector('.shop-now-btn').style.display = 'flex';
+
+    });
+    
+     document.querySelector('.icon-close').addEventListener('click',function(){
+        document.querySelector('.icon-close').style.display = 'none';
+        document.querySelector('.icon-hamburger').style.display = 'flex';
+         document.querySelector('.announcement').style.display = 'none';
+        document.querySelector('.shop-now-btn').style.display = 'none';
+    });  
+        
+    });
+</script>
 
 
 {% schema %}
