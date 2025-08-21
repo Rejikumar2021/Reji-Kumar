@@ -1,61 +1,68 @@
 <div class="banner-container">
-    <div class="banner-inner-container">
-        <div class="section-banner-1">
-            <img src="{{ section.settings.top_banner | image_url }}" width="100%" height="auto">
-        </div>
-        <div class="section-banner-2">
-            <div class="content-section-left">
-                <h1>{{ section.settings.banner_heading }}</h1>
-                <p class="banner-description-mobile">{{ section.settings.heading_description_mobile }}</p>
-                 <p class="banner-description-desktop">{{ section.settings.heading_description_desktop }}</p>
-                <p class="banner-button-desktop"><a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a></p>
-            </div>
-            <div class="image-section-right" style="
-    background-image: url({{ section.settings.right_banner | image_url }})">
-                <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}
-                    <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"/>
-</svg>
-                </a>
-            </div>
-        </div>
-        <div class="banner-bottom-text-mobile">{{ section.settings.banner_bottom_text_mobile }}</div>
-        <div class="banner-bottom-text-desktop">{{ section.settings.banner_bottom_text_desktop }}</div>
+  <div class="banner-inner-container">
+    <div class="section-banner-1">
+      <img src="{{ section.settings.top_banner | image_url }}" width="100%" height="auto">
     </div>
+    <div class="section-banner-2">
+      <div class="content-section-left">
+        <h1>{{ section.settings.banner_heading }}</h1>
+        <p class="banner-description-mobile">{{ section.settings.heading_description_mobile }}</p>
+        <p class="banner-description-desktop">{{ section.settings.heading_description_desktop }}</p>
+        <p class="banner-button-desktop">
+          <a href="{{ section.settings.button_link }}">
+            {{- section.settings.button_text }}
+            <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"/>
+            </svg>
+          </a>
+        </p>
+      </div>
+      <div
+        class="image-section-right"
+        style="    background-image: url({{ section.settings.right_banner | image_url }})"
+      >
+        <a href="{{ section.settings.button_link }}">
+          {{- section.settings.button_text }}
+          <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="banner-bottom-text-mobile">{{ section.settings.banner_bottom_text_mobile }}</div>
+  </div>
+  <div class="banner-bottom-text-desktop">{{ section.settings.banner_bottom_text_desktop }}</div>
 </div>
 <style>
-.banner-inner-container
-{
-    width:100%;
-    max-width:1440px;
-    margin:0px auto;
-}
-.section-banner-1,.banner-bottom-text-desktop,.banner-description-desktop,.banner-button-desktop
-{
-    display:none;
-}
-.section-banner-2
-{
-    display:flex;
-    flex-direction:column;
-}
-.content-section-left 
-{
-    padding:0px 18px;
-}
-.content-section-left h1 
-{
+  .banner-inner-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0px auto;
+  }
+  .section-banner-1,
+  .banner-bottom-text-desktop,
+  .banner-description-desktop,
+  .banner-button-desktop {
+    display: none;
+  }
+  .section-banner-2 {
+    display: flex;
+    flex-direction: column;
+  }
+  .content-section-left {
+    padding: 0px 18px;
+  }
+  .content-section-left h1 {
     text-align: center;
     font-family: 'Jost';
     font-weight: 500;
     font-size: 30px;
     padding-top: 50px;
     margin-top: unset;
-    margin-bottom:unset;
-    margin-bottom:24px;
-}
-.banner-description-mobile
-{
+    margin-bottom: unset;
+    margin-bottom: 24px;
+  }
+  .banner-description-mobile {
     font-family: 'Jost';
     font-weight: 400;
     font-size: 16px;
@@ -64,86 +71,182 @@
     max-width: 300px;
     margin: 0px auto;
     text-align: center;
-}
+  }
 
-.image-section-right 
-{
-    height:264px;
+  .image-section-right {
+    height: 264px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     padding-bottom: 45px;
-}
-.image-section-right a 
-{
+  }
+  .image-section-right a {
     text-decoration: none;
     background-color: #000;
     color: #fff;
     font-family: 'Jost';
     font-size: 16px;
     padding: 10px 35px;
-}
-.image-section-right a svg
-{
-    fill:#fff;
-    margin-left:10px;
-}
+  }
+  .image-section-right a svg {
+    fill: #fff;
+    margin-left: 10px;
+  }
+  .banner-bottom-text-mobile {
+    text-align: center;
+    background-color: #f5f5f5;
+    font-family: jost;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000;
+    padding: 8px 0px;
+  }
 
+  @media (min-width: 1025px) {
+    .section-banner-1,
+    .banner-bottom-text-desktop,
+    .banner-description-desktop,
+    .banner-button-desktop {
+      display: block;
+    }
+    .banner-description-mobile,
+    .image-section-right a,
+    .banner-bottom-text-mobile {
+      display: none;
+    }
+    .section-banner-2 {
+      flex-direction: row;
+    }
+    .content-section-left {
+      max-width: 40%;
+    }
+    .content-section-left h1 {
+      text-align: left;
+      font-weight: 500;
+      font-size: 70px;
+    }
+    .image-section-right {
+      width: 100%;
+      height: 400px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .banner-description-desktop {
+      font-family: 'Jost';
+      color: #000;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 140%;
+    }
+    .banner-button-desktop {
+      margin-top: 50px;
+      position: relative;
+    }
+    .banner-button-desktop a {
+      position: absolute;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      font-size: 16px;
+      font-family: 'Jost';
+      text-transform: uppercase;
+      font-weight: 400;
+      padding-left: 56px;
+      padding-right: 25px;
+      z-index: 1;
+    }
+    .banner-bottom-text-desktop {
+      background-color: #f5f5f5;
+      text-align: center;
+      font-family: 'Jost';
+      font-size: 16px;
+      color: #000;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .banner-container {
+      margin-top: -170px;
+    }
+    .banner-button-desktop a svg {
+      fill: #ffffff;
+      margin-left: 15px;
+    }
+
+    .banner-button-desktop a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #fff544;
+      transition: width 0.3s ease;
+      z-index: -1;
+    }
+
+    .banner-button-desktop a:hover::after {
+      width: 100%;
+    }
+    .banner-button-desktop a:hover {
+      color: #000000;
+    }
+    .banner-button-desktop a:hover svg {
+      fill: #000000;
+    }
+  }
 </style>
 {% schema %}
 {
-    "name":"Banner section",
-    "settings": [
-        {
-            "label":"Top Banner",
-            "type": "image_picker",
-            "id": "top_banner"                
-        },
-        {
-            "label":"Right Banner",
-            "type": "image_picker",
-            "id":"right_banner",
-        },
-        {
-            "label":"Banner Heading",
-            "type": "text",
-            "id":"banner_heading"
-        },
-        {
-            "label":"Heading Description Mobile",
-            "type": "textarea",
-            "id":"heading_description_mobile"
-        },
-        {
-             "label":"Heading Description Desktop",
-            "type": "textarea",
-            "id":"heading_description_desktop"
-        },
-        {
-            "label":"Button Text",
-            "type":"text",
-            "id": "button_text"
-        },
-        {   "label" : "Button Link",
-            "type": "url",
-            "id": "button_link"
-        },
-        {
-            "label" : "Banner Bottom Text Desktop",
-            "type": "text",
-            "id": "banner_bottom_text_desktop"
-        },
-        {
-            "label":"Banner Bottom Text Mobile",
-            "type": "text",
-            "id": "banner_bottom_text_mobile"
-        }
-
-    ],
-    "presets": [
-        {
-            "name":"Custom Banner"
-        }
-    ]
+  "name": "Banner section",
+  "settings": [
+    {
+      "label": "Top Banner",
+      "type": "image_picker",
+      "id": "top_banner"
+    },
+    {
+      "label": "Right Banner",
+      "type": "image_picker",
+      "id": "right_banner"
+    },
+    {
+      "label": "Banner Heading",
+      "type": "text",
+      "id": "banner_heading"
+    },
+    {
+      "label": "Heading Description Mobile",
+      "type": "textarea",
+      "id": "heading_description_mobile"
+    },
+    {
+      "label": "Heading Description Desktop",
+      "type": "textarea",
+      "id": "heading_description_desktop"
+    },
+    {
+      "label": "Button Text",
+      "type": "text",
+      "id": "button_text"
+    },
+    { "label": "Button Link", "type": "url", "id": "button_link" },
+    {
+      "label": "Banner Bottom Text Desktop",
+      "type": "text",
+      "id": "banner_bottom_text_desktop"
+    },
+    {
+      "label": "Banner Bottom Text Mobile",
+      "type": "text",
+      "id": "banner_bottom_text_mobile"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner"
+    }
+  ]
 }
 {% endschema %}

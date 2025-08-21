@@ -1,270 +1,240 @@
 <div class="nav-container">
-    <div class="ham-logo-container">
+  <div class="ham-logo-container">
+    <div class="hamburger">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16">
+          <path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"></path>
+        </svg>
 
-        <div class="hamburger">
-
-            
-<span><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16"><path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"></path></svg>
-
-
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"></path></svg>
-</span>
-        </div>
-        <div class="site-logo">
-            <img src="{{ section.settings.logo_image | image_url}}" width="100%" height="auto">
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17">
+          <path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"></path>
+        </svg>
+      </span>
     </div>
+    <div class="site-logo">
+      <img src="{{ section.settings.logo_image | image_url}}" width="100%" height="auto">
+    </div>
+  </div>
 
-    <div class="announcement">
-        <span>{{ section.settings.alert_text }}</span>
-    </div>
-    <div class="shop-now-btn">
-        {% for block in section.blocks %}
-            {% if block.type == "gift_button" %}
-                <a href="{{ block.settings.gift_url }}">
-                    {{ block.settings.url_text }}
-                    <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"/>
-</svg>
-                </a>
-            {% endif %}
-        {% endfor %}
-    </div>
+  <div class="announcement">
+    <span>{{ section.settings.alert_text }}</span>
+  </div>
+  <div class="shop-now-btn">
+    {% for block in section.blocks %}
+      {% if block.type == 'gift_button' %}
+        <a href="{{ block.settings.gift_url }}">
+          {{ block.settings.url_text }}
+          <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"/>
+          </svg>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
 
 <style>
-    .nav-container
-    {
-        width: 100%;
-        max-width: 1440px;
-        display: flex;
-        flex-direction: column;
-        margin: 0px auto;
-    }
-    .ham-logo-container
-    {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        align-content: center;
-        background-color: #F7F7F7;
-        padding-top: 23px;
-        padding-bottom: 23px;
-        padding-left: 16px;
+  .nav-container {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+  }
+  .ham-logo-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    background-color: #f7f7f7;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    padding-left: 16px;
+  }
+  .site-logo {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .site-logo img {
+    max-width: 152px;
+  }
+  .announcement,
+  .shop-now-btn {
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: jost;
+    background-color: #f2f2f2;
+  }
+  .announcement {
+    font-weight: 400;
+    color: #000;
+    font-size: 16px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+  }
 
-    }
-    .site-logo
-    {
-        width: 90%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-    .site-logo img 
-    {
-        max-width:152px;
-    }
-    .announcement,.shop-now-btn
-    {
-        display:none;
-        justify-content: center;
-        flex-wrap: wrap;
-        align-items: center;
-        font-family: jost;
-        background-color: #F2F2F2;
-    }
-    .announcement 
-    {
-       font-weight: 400;
-        color: #000;
-        font-size: 16px;
-        padding-top: 25px;
-        padding-bottom: 15px;
-    }
-
-    .hamburger 
-    {
-        width:10%;
-    }
-    .hamburger span svg 
-    {
-    max-width:18px;
-}
-    .icon-close 
-    {
-        display: none;
-    }
-    .shop-now-btn 
-    {
-        padding-bottom:25px;
-    }
-   .shop-now-btn a {
-    position: relative;             
+  .hamburger {
+    width: 10%;
+  }
+  .hamburger span svg {
+    max-width: 18px;
+  }
+  .icon-close {
+    display: none;
+  }
+  .shop-now-btn {
+    padding-bottom: 25px;
+  }
+  .shop-now-btn a {
+    position: relative;
     display: inline-block;
-     background-color:#FFF544;
-     color: #000000;
+    background-color: #fff544;
+    color: #000000;
     font-family: jost;
     text-decoration: none;
     font-weight: 400;
     font-size: 16px;
     padding: 11px 20px;
     text-transform: uppercase;
-    overflow: hidden;               
+    overflow: hidden;
     z-index: 999;
-}
-.shop-now-btn a svg 
-{
-    fill:#000000;
-}
-.shop-now-btn a::after 
-{
-    content:"";
-    position:absolute;
-    width:0;
-    height:100%;
-    top:0;
-    left:0;
-    background-color:#000000;
-    transition:width 0.3s ease;
-    z-index:-1;
-}
+  }
+  .shop-now-btn a svg {
+    fill: #000000;
+  }
+  .shop-now-btn a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    transition: width 0.3s ease;
+    z-index: -1;
+  }
 
-.shop-now-btn a:hover::after 
-{
-    width:100%;
-}
-.shop-now-btn a:hover
-{
-    color:#ffffff;
-}
-.shop-now-btn a:hover svg {
+  .shop-now-btn a:hover::after {
+    width: 100%;
+  }
+  .shop-now-btn a:hover {
+    color: #ffffff;
+  }
+  .shop-now-btn a:hover svg {
     fill: #ffffff;
-}
-.shopify-section-group-header-group
-{
-    background-color:#F7F7F7;
-}
+  }
+  .shopify-section-group-header-group {
+    background-color: #f7f7f7;
+  }
 
-
-
-@media(min-width:1025px){
-
-   .nav-container
-   {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        margin: 0px auto;
-        justify-content: space-between;
-        background-color:#F7F7F7;
-    } 
-    .ham-logo-container 
-    {
-        padding-left:52px;
+  @media (min-width: 1025px) {
+    .nav-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 0px auto;
+      justify-content: space-between;
+      background-color: #f7f7f7;
     }
-    .hamburger 
-    {
-        display:none;  
-        width:unset; 
+    .ham-logo-container {
+      padding-left: 52px;
     }
-    .site-logo 
-    {
-        width:unset;
+    .hamburger {
+      display: none;
+      width: unset;
     }
-    .announcement,.shop-now-btn
-    {
-        display:flex !important;
-        margin-top:unset;
-        background-color:unset;
+    .site-logo {
+      width: unset;
     }
-    .announcement 
-    {
-        padding-top:unset;
-        padding-bottom:unset;
+    .announcement,
+    .shop-now-btn {
+      display: flex !important;
+      margin-top: unset;
+      background-color: unset;
     }
-    .shop-now-btn
-    {
-        padding-bottom:unset;
-        padding-right:52px;
+    .announcement {
+      padding-top: unset;
+      padding-bottom: unset;
     }
-
-
-}
+    .shop-now-btn {
+      padding-bottom: unset;
+      padding-right: 52px;
+    }
+  }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded',function(){
-       document.querySelector('.icon-hamburger').addEventListener('click',function(){
-       document.querySelector('.icon-hamburger').style.display = 'none';
-        document.querySelector('.icon-close').style.display = 'inline';
-        document.querySelector('.announcement').style.display = 'flex';
-        document.querySelector('.shop-now-btn').style.display = 'flex';
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.icon-hamburger').addEventListener('click', function () {
+      document.querySelector('.icon-hamburger').style.display = 'none';
+      document.querySelector('.icon-close').style.display = 'inline';
+      document.querySelector('.announcement').style.display = 'flex';
+      document.querySelector('.shop-now-btn').style.display = 'flex';
+    });
 
+    document.querySelector('.icon-close').addEventListener('click', function () {
+      document.querySelector('.icon-close').style.display = 'none';
+      document.querySelector('.icon-hamburger').style.display = 'flex';
+      document.querySelector('.announcement').style.display = 'none';
+      document.querySelector('.shop-now-btn').style.display = 'none';
     });
-    
-     document.querySelector('.icon-close').addEventListener('click',function(){
-        document.querySelector('.icon-close').style.display = 'none';
-        document.querySelector('.icon-hamburger').style.display = 'flex';
-         document.querySelector('.announcement').style.display = 'none';
-        document.querySelector('.shop-now-btn').style.display = 'none';
-    });  
-        
-    });
+  });
 </script>
-
 
 {% schema %}
 {
-    "name":"Top Header Section",
-    "settings":[
+  "name": "Top Header Section",
+  "settings": [
+    {
+      "label": "Logo",
+      "type": "image_picker",
+      "id": "logo_image"
+    },
+    {
+      "label": "Alert Text",
+      "type": "text",
+      "id": "alert_text",
+      "default": "lorem ipsum....."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gift_button",
+      "name": "Gift Button",
+      "limit": 1,
+      "settings": [
         {
-            "label":"Logo",
-            "type": "image_picker",
-            "id": "logo_image"
+          "type": "url",
+          "id": "gift_url",
+          "label": "Gift URL"
         },
         {
-            "label":"Alert Text",
-            "type": "text",
-            "id": "alert_text",
-            "default":"lorem ipsum....."
+          "type": "text",
+          "id": "url_text",
+          "label": "Button Text",
+          "default": "Shop Now"
         }
-    ],
-    "blocks": [
-        {
-            "type": "gift_button",
-            "name":"Gift Button",
-            "limit": 1,
-            "settings": [
-                {
-                    "type": "url",
-                    "id":"gift_url",
-                    "label": "Gift URL"
-                },
-                {
-                    "type": "text",
-                    "id":"url_text",
-                    "label": "Button Text",
-                    "default":"Shop Now"
-                }
-            ]
-        }
-    ],
-    "presets": [
-        {
-            "name": "Custom Header",
-            "blocks": [
-                {
-                "type": "gift_button"
-                }
-            ]
+      ]
     }
-    ],
-    "enabled_on": {
+  ],
+  "presets": [
+    {
+      "name": "Custom Header",
+      "blocks": [
+        {
+          "type": "gift_button"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
     "groups": ["header"]
-    }
-
+  }
 }
 {% endschema %}
-
