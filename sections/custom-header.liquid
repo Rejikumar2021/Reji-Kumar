@@ -102,23 +102,91 @@
     }
    .shop-now-btn a {
     position: relative;             
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    display: inline-block;
+     background-color:#FFF544;
+     color: #000000;
     font-family: jost;
     text-decoration: none;
     font-weight: 400;
     font-size: 16px;
-    color: #000000;
-    background-color: #FFF544;
     padding: 11px 20px;
     text-transform: uppercase;
     overflow: hidden;               
-    z-index: 1;
+    z-index: 999;
 }
 .shop-now-btn a svg 
 {
     fill:#000000;
+}
+.shop-now-btn a::after 
+{
+    content:"";
+    position:absolute;
+    width:0;
+    height:100%;
+    top:0;
+    left:0;
+    background-color:#000000;
+    transition:width 0.3s ease;
+    z-index:-1;
+}
+
+.shop-now-btn a:hover::after 
+{
+    width:100%;
+}
+.shop-now-btn a:hover
+{
+    color:#ffffff;
+}
+.shop-now-btn a:hover svg {
+    fill: #ffffff;
+}
+
+
+
+@media(min-width:1025px){
+
+   .nav-container
+   {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 0px auto;
+        justify-content: space-between;
+        background-color:#F7F7F7;
+    } 
+    .ham-logo-container 
+    {
+        padding-left:52px;
+    }
+    .hamburger 
+    {
+        display:none;  
+        width:unset; 
+    }
+    .site-logo 
+    {
+        width:unset;
+    }
+    .announcement,.shop-now-btn
+    {
+        display:flex !important;
+        margin-top:unset;
+        background-color:unset;
+    }
+    .announcement 
+    {
+        padding-top:unset;
+        padding-bottom:unset;
+    }
+    .shop-now-btn
+    {
+        padding-bottom:unset;
+        padding-right:52px;
+    }
+
+
 }
 </style>
 
