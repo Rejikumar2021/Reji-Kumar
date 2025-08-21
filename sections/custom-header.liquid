@@ -1,0 +1,92 @@
+<div class="nav-container">
+    <div class="ham-logo-container">
+
+        <div class="hamburger">
+
+            
+<span><svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-hamburger" viewBox="0 0 18 16"><path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"></path></svg>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17"><path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"></path></svg>
+</span>
+        </div>
+        <div class="site-logo">
+            <img src="{{ section.settings.logo_image | image_url}}" width="100%" height="auto">
+        </div>
+    </div>
+
+    <div class="announcement">
+        <span>{{ section.settings.alert_text }}</span>
+    </div>
+    <div class="shop-now-btn">
+        {% for block in section.blocks %}
+            {% if block.settings == "gift_button" %}
+                <a href="{{ block.settings.gift_url }}" class="gift-button">
+                    {{ block.settings.url_text }}
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .icon-close 
+    {
+        display:"none";
+    }
+</style>
+
+
+{% schema %}
+{
+    "name":"Top Header Section",
+    "settings":[
+        {
+            "label":"Logo",
+            "type": "image_picker",
+            "id": "logo_image"
+        },
+        {
+            "label":"Alert Text",
+            "type": "text",
+            "id": "alert_text",
+            "default":"lorem ipsum....."
+        }
+    ],
+    "blocks": [
+        {
+            "type": "gift_button",
+            "name":"Gift Button",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "url",
+                    "id":"gift_url",
+                    "label": "Gift URL"
+                },
+                {
+                    "type": "text",
+                    "id":"url_text",
+                    "label": "Button Text",
+                    "default":"Shop Now"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Custom Header",
+            "blocks": [
+                {
+                "type": "gift_button"
+                }
+            ]
+    }
+    ],
+    "enabled_on": {
+    "groups": ["header"]
+    }
+
+}
+{% endschema %}
+
