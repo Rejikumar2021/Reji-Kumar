@@ -23,9 +23,25 @@
         "banner_bottom_text_desktop": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
         "banner_bottom_text_mobile": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
       }
+    },
+    "custom_product_grid_hBBbra": {
+      "type": "custom-product-grid",
+      "name": "Custom Product Grid",
+      "settings": {
+        "selected_products": [
+          "blue-silk-tuxedo",
+          "chequered-red-shirt",
+          "classic-leather-jacket",
+          "classic-varsity-top",
+          "dark-denim-top",
+          "floral-white-top"
+        ],
+        "section_title": ""
+      }
     }
   },
   "order": [
-    "custom_banner_YDpAGF"
+    "custom_banner_YDpAGF",
+    "custom_product_grid_hBBbra"
   ]
 }
