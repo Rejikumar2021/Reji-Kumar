@@ -29,8 +29,16 @@
         </div>
        </div>
 
-       <div class="product-color-container"></div>
-       <div class="product-size-container"></div>
+       <div class="product-color-container">
+        <p>Color</p>
+       </div>
+       <div class="product-size-container">
+         <p>Size</p>
+        <select id="product-size">
+            <option value="">----------</option>
+        </select>
+
+       </div>
        <div class="add-to-cart-container"></div>
 
     </div>
@@ -147,6 +155,66 @@
     {
         margin-bottom:12px;
     }
+    .product-color-container 
+    {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .color-container
+    {
+        width:50%;
+        height: 40px;
+        margin-bottom:5px;
+    }
+    .color-container button 
+    {
+        width: 98%;
+        background-color: #fff;
+        height: 40px;
+        border: 1px solid #000;
+        margin-left: 3px;
+        cursor:pointer;
+    }
+
+    .product-color-container p,.product-size-container p 
+    {
+        display: inline-block;
+        width: 100%;
+        margin: unset;
+        font-family: 'Jost';
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .product-size-container select 
+    {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 16px;
+        outline:none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right .7rem center;
+  background-size: 14px 14px;
+    }
+     .product-size-container select:focus 
+     {
+        outline:none;
+    }
+    .product-size-container::after
+    {
+        content: "|";
+        position: absolute;
+        font-size: 39px;
+        margin-top: -19px;
+        right: 50px;
+        color: #767676;
+    }
 
       @media (min-width: 1025px) {
     
@@ -178,6 +246,11 @@ document.addEventListener("DOMContentLoaded",()=>{
         let productId = this.querySelector('a').getAttribute('data-id');
         let ProductHandle = this.querySelector('a').getAttribute('data-handle');
         let productDetails = fetch(`/products/${ProductHandle}.js`).then(res=>res.json());
+        let colorContainer = document.querySelector('.product-color-container');
+             colorContainer.innerHTML = `<p>Color</p>`;
+        let productOption = document.querySelector('.product-size-container select');
+           
+             
         
 
         
@@ -188,11 +261,47 @@ document.addEventListener("DOMContentLoaded",()=>{
             document.querySelector('.product-price').innerHTML = (product.price / 100).toLocaleString('en-US',{style:'currency',currency:Shopify.currency.active});
              document.querySelector('.product-description').innerHTML = product.description;
 
+             const optionMap = {};
+            product.options.forEach((opt,index)=>{
+                optionMap[opt.name.toLowerCase()] = index;
+            });
+            const colorIdx = optionMap["color"];
+            const sizeIdx = optionMap["size"];
+
+             const colors = [...new Set(product.variants.map(v => v.options[colorIdx]))];
+
+            colors.forEach(color =>{
+            const colorWrapper = document.createElement("div"); 
+             const btn = document.createElement("button");
+             colorWrapper.classList.add("color-container");
+             btn.textContent = color;
+             btn.dataset.color = color;
+             btn.classList.add("color-btn");
+            colorWrapper.style.backgroundColor = color;
+            colorWrapper.appendChild(btn);
+            colorContainer.appendChild(colorWrapper);
+            btn.addEventListener("click",()=>{
+            
+                productOption.innerHTML = "";
+                let defaultOption = document.createElement('option');
+                    defaultOption.value = "";
+                    defaultOption.textContent = "Choose your size";
+                    productOption.appendChild(defaultOption);
+
+            });
+                
+            
+            });
+
+             document.querySelector('.product-popup ').style.display="block";
+
         });
 
+       
 
 
-        document.querySelector('.product-popup ').style.display="block";
+
+       
 
         })
     
