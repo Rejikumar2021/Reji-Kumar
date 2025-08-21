@@ -1,0 +1,66 @@
+<div class="banner-container">
+    <div class="banner-inner-container">
+        <div class="section-banner-1">
+            <img src="{{ section.settings.top_banner | image_url }}" width="100%" height="auto">
+        </div>
+        <div class="section-banner-2">
+            <div class="content-section-left">
+                <h1>{{ section.settings.banner_heading }}</h1>
+                <p>{{ section.settings.heading_description }}</p>
+                <p><a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a></p>
+            </div>
+            <div class="image-section-right">
+                 <img src="{{ section.settings.right_banner | image_url }}" width="100%" height="auto">
+            </div>
+        </div>
+        <div class="banner-bottom-text">{{ section.settings.banner_bottom_text }}</div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"Banner section",
+    "settings": [
+        {
+            "label":"Top Banner",
+            "type": "image_picker",
+            "id": "top_banner"                
+        },
+        {
+            "label":"Right Banner",
+            "type": "image_picker",
+            "id":"right_banner",
+        },
+        {
+            "label":"Banner Heading",
+            "type": "text",
+            "id":"banner_heading"
+        },
+        {
+            "label":"Heading Description",
+            "type": "textarea",
+            "id":"heading_description"
+        },
+        {
+            "label":"Button Text",
+            "type":"text",
+            "id": "button_text"
+        },
+        {   "label" : "Button Link",
+            "type": "url",
+            "id": "button_link"
+        },
+        {
+            "label" : "Banner Bottom text",
+            "type": "text",
+            "id": "banner_bottom_text"
+        }
+
+    ],
+    "presets": [
+        {
+            "name":"Custom Banner"
+        }
+    ]
+}
+{% endschema %}
