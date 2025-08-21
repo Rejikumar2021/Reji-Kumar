@@ -1,0 +1,44 @@
+<div class="custom-grid-container">
+   <div class="product-grid-title">
+    <p>{{ section.settings.section_title }}</p>
+   </div>
+   <div class="product-grid-wrapper">
+    {% for product in section.settings.selected_products %}
+    <div class="product-item">
+        <a href="#">
+           {{ product.featured_image | image_url: width:1200 | image_tag:class :"full-width-auto"  }}
+        </a>
+    </div>
+    {% endfor %}
+   </div>
+</div>
+
+
+
+{% schema %}
+{
+
+"name":"Custom Product Grid",
+"settings":[
+{
+    "type": "product_list",
+    "id": "selected_products",
+    "label": "Select Product"
+},
+{
+    "type": "text",
+    "id":"section_title",
+    "label": "Section Title"
+}
+
+],
+"presets":[
+{
+    "name":"Custom Product Grid"
+}
+
+]
+
+}
+
+{% endschema %}
