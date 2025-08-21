@@ -47,6 +47,7 @@
       ],
       "name": "Custom Header",
       "settings": {
+        "logo_image": "shopify://shop_images/logo.png",
         "alert_text": "lorem ipsum....."
       }
     }
