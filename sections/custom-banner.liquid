@@ -19,7 +19,8 @@
                 </a>
             </div>
         </div>
-        <div class="banner-bottom-text">{{ section.settings.banner_bottom_text }}</div>
+        <div class="banner-bottom-text-mobile">{{ section.settings.banner_bottom_text_mobile }}</div>
+        <div class="banner-bottom-text-desktop">{{ section.settings.banner_bottom_text_desktop }}</div>
     </div>
 </div>
 <style>
@@ -29,7 +30,7 @@
     max-width:1440px;
     margin:0px auto;
 }
-.section-banner-1
+.section-banner-1,.banner-bottom-text-desktop,.banner-description-desktop,.banner-button-desktop
 {
     display:none;
 }
@@ -64,10 +65,7 @@
     margin: 0px auto;
     text-align: center;
 }
-.banner-description-desktop,.banner-button-desktop
-{
-    display:none;
-}
+
 .image-section-right 
 {
     height:264px;
@@ -90,6 +88,7 @@
     fill:#fff;
     margin-left:10px;
 }
+
 </style>
 {% schema %}
 {
@@ -130,9 +129,14 @@
             "id": "button_link"
         },
         {
-            "label" : "Banner Bottom text",
+            "label" : "Banner Bottom Text Desktop",
             "type": "text",
-            "id": "banner_bottom_text"
+            "id": "banner_bottom_text_desktop"
+        },
+        {
+            "label":"Banner Bottom Text Mobile",
+            "type": "text",
+            "id": "banner_bottom_text_mobile"
         }
 
     ],
