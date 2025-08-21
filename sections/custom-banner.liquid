@@ -8,10 +8,15 @@
                 <h1>{{ section.settings.banner_heading }}</h1>
                 <p class="banner-description-mobile">{{ section.settings.heading_description_mobile }}</p>
                  <p class="banner-description-desktop">{{ section.settings.heading_description_desktop }}</p>
-                <p class="banner-button"><a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a></p>
+                <p class="banner-button-desktop"><a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a></p>
             </div>
-            <div class="image-section-right">
-                 <img src="{{ section.settings.right_banner | image_url }}" width="100%" height="auto">
+            <div class="image-section-right" style="
+    background-image: url({{ section.settings.right_banner | image_url }})">
+                <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}
+                    <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"/>
+</svg>
+                </a>
             </div>
         </div>
         <div class="banner-bottom-text">{{ section.settings.banner_bottom_text }}</div>
@@ -46,20 +51,45 @@
     padding-top: 50px;
     margin-top: unset;
     margin-bottom:unset;
+    margin-bottom:24px;
 }
-.banner-description 
+.banner-description-mobile
 {
-    font-family:'Jost';
-    font-weight:400;
-    font-size:16px;
-    line-height:130%;
-    color:#000000;
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: #000000;
+    max-width: 300px;
+    margin: 0px auto;
+    text-align: center;
 }
-.banner-description-desktop 
+.banner-description-desktop,.banner-button-desktop
 {
-    
+    display:none;
 }
-
+.image-section-right 
+{
+    height:264px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 45px;
+}
+.image-section-right a 
+{
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Jost';
+    font-size: 16px;
+    padding: 10px 35px;
+}
+.image-section-right a svg
+{
+    fill:#fff;
+    margin-left:10px;
+}
 </style>
 {% schema %}
 {
