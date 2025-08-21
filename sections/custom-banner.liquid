@@ -6,8 +6,9 @@
         <div class="section-banner-2">
             <div class="content-section-left">
                 <h1>{{ section.settings.banner_heading }}</h1>
-                <p>{{ section.settings.heading_description }}</p>
-                <p><a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a></p>
+                <p class="banner-description-mobile">{{ section.settings.heading_description_mobile }}</p>
+                 <p class="banner-description-desktop">{{ section.settings.heading_description_desktop }}</p>
+                <p class="banner-button"><a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a></p>
             </div>
             <div class="image-section-right">
                  <img src="{{ section.settings.right_banner | image_url }}" width="100%" height="auto">
@@ -16,7 +17,50 @@
         <div class="banner-bottom-text">{{ section.settings.banner_bottom_text }}</div>
     </div>
 </div>
+<style>
+.banner-inner-container
+{
+    width:100%;
+    max-width:1440px;
+    margin:0px auto;
+}
+.section-banner-1
+{
+    display:none;
+}
+.section-banner-2
+{
+    display:flex;
+    flex-direction:column;
+}
+.content-section-left 
+{
+    padding:0px 18px;
+}
+.content-section-left h1 
+{
+    text-align: center;
+    font-family: 'Jost';
+    font-weight: 500;
+    font-size: 30px;
+    padding-top: 50px;
+    margin-top: unset;
+    margin-bottom:unset;
+}
+.banner-description 
+{
+    font-family:'Jost';
+    font-weight:400;
+    font-size:16px;
+    line-height:130%;
+    color:#000000;
+}
+.banner-description-desktop 
+{
+    
+}
 
+</style>
 {% schema %}
 {
     "name":"Banner section",
@@ -37,9 +81,14 @@
             "id":"banner_heading"
         },
         {
-            "label":"Heading Description",
+            "label":"Heading Description Mobile",
             "type": "textarea",
-            "id":"heading_description"
+            "id":"heading_description_mobile"
+        },
+        {
+             "label":"Heading Description Desktop",
+            "type": "textarea",
+            "id":"heading_description_desktop"
         },
         {
             "label":"Button Text",
