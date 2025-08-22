@@ -399,9 +399,9 @@ document.addEventListener("DOMContentLoaded",()=>{
                 });
                 }else{
                 addItemToCart(variantId).then(function(res){
-                
+
                     addItemToCart(44675995959340).then(function(res){
-                    
+                        document.querySelector('.product-popup ').style.display="none";
                     });
                 
                 });
@@ -414,9 +414,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         }else{
         
             addItemToCart(variantId).then(function(res){
-            
-                
-            
+                document.querySelector('.product-popup ').style.display="none";
             });
         }
         
