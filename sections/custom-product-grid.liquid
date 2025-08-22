@@ -16,7 +16,7 @@
     <div class="product-popup-body">
         <input type="hidden" id="selected-product-size">
         <input type="hidden" id="selected-product-color">
-        
+
         <a href="#" class="close-popup"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5.0376 4.94354L13.5229 13.4288" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
 <path d="M5.0376 13.4285L13.5229 4.94325" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
@@ -323,6 +323,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                          btn.style.borderColor = color;
                         btn.style.color = "#fff";
                     }
+                    document.getElementById("selected-product-color").value = color;
                     
                     showSizes(color);
 
@@ -376,12 +377,107 @@ document.addEventListener("DOMContentLoaded",()=>{
     
         const selectedVariantId = this.value;
         const selectedOptionText = this.options[this.selectedIndex].text;
-         
-
-
+      document.getElementById("selected-product-size").value = selectedOptionText;
+      document.getElementById("add-to-cart").setAttribute('data-selected-id',selectedVariantId);
     });
 
-})
+    document.getElementById("add-to-cart").addEventListener('click',function(e){
+        e.preventDefault();
+        let selectedProductColor = document.getElementById("selected-product-color").value;
+        let selectedProductSize = document.getElementById("selected-product-size").value;
+        let variantId = this.getAttribute("data-selected-id");
+
+        let combinedProductToBeAdded = false;
+
+        if(selectedProductColor == "Black" && selectedProductSize == "M"){
+            
+            checkForWinterJacketAddedAlready().then(function(res){
+            
+                if(res == true){
+                addItemToCart(variantId).then(function(res){
+                
+                });
+                }else{
+                addItemToCart(variantId).then(function(res){
+                
+                    addItemToCart(44675995959340).then(function(res){
+                    
+                    });
+                
+                });
+                
+                }
+            
+            });
+           
+        
+        }else{
+        
+            addItemToCart(variantId).then(function(res){
+            
+                
+            
+            });
+        }
+        
+    
+    });
+
+    function addItemToCart(variantId){
+    
+        return new Promise((resolve,reject) => {
+        
+            try{
+                fetch("/cart/add.js",{
+                method : "POST",
+                headers : {"Content-Type" : "application/json"},
+                body : JSON.stringify({
+                    id:variantId,
+                    quantity : 1
+                })
+
+                })
+
+                .then(res => res.json())
+                   .then(data =>{
+                    resolve(true);
+                }); 
+            }catch(error){
+                reject(error)
+           
+            }
+         
+        
+        });
+       
+    }
+    
+    function checkForWinterJacketAddedAlready()
+    {
+        return new Promise((resolve,reject)=>{
+        
+            try{
+
+                fetch("/cart.js").then(res => res.json())
+                .then(cart => {
+                const jacketAlready = cart.items.some(item => item.product_title === "Soft Winter Jacket");
+
+                if(jacketAlready){
+                    resolve(true);
+                }else{
+                    resolve(false);
+                }
+                
+                })
+
+            }catch(error){
+                reject(error);
+            }
+
+        });
+    }
+
+});
 
 </script>
 
