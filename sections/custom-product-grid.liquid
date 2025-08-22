@@ -1,508 +1,436 @@
 <div class="custom-grid-container">
-   <div class="product-grid-title">
+  <div class="product-grid-title">
     <p>{{ section.settings.section_title }}</p>
-   </div>
-   <div class="product-grid-wrapper">
+  </div>
+  <div class="product-grid-wrapper">
     {% for product in section.settings.selected_products %}
-    <div class="product-item">
-        <a href="#" data-id ="{{ product.id }}" data-handle="{{ product.handle }}">
-           {{ product.featured_image | image_url: width:1200 | image_tag:class :"full-width-auto"  }}
+      <div class="product-item">
+        <a href="#" data-id="{{ product.id }}" data-handle="{{ product.handle }}">
+          {{ product.featured_image | image_url: width: 1200 | image_tag: class: 'full-width-auto' }}
         </a>
-    </div>
+      </div>
     {% endfor %}
-   </div>
+  </div>
 
-   <div class="product-popup">
+  <div class="product-popup">
     <div class="product-popup-body">
-        <input type="hidden" id="selected-product-size">
-        <input type="hidden" id="selected-product-color">
+      <input type="hidden" id="selected-product-size">
+      <input type="hidden" id="selected-product-color">
 
-        <a href="#" class="close-popup"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.0376 4.94354L13.5229 13.4288" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M5.0376 13.4285L13.5229 4.94325" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
-</svg>
-</a>
-       <div class="product-image-info-container">
-
+      <a href="#" class="close-popup">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.0376 4.94354L13.5229 13.4288" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+          <path d="M5.0376 13.4285L13.5229 4.94325" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="product-image-info-container">
         <div class="product-image"></div>
         <div class="product-info">
-            <div class="product-title"></div>
-            <div class="product-price"></div>
-            <div class="product-description"></div>
+          <div class="product-title"></div>
+          <div class="product-price"></div>
+          <div class="product-description"></div>
         </div>
-       </div>
+      </div>
 
-       <div class="product-color-container">
+      <div class="product-color-container">
         <p>Color</p>
-       </div>
-       <div class="product-size-container">
-         <p>Size</p>
+      </div>
+      <div class="product-size-container">
+        <p>Size</p>
         <select id="product-size">
-            <option value="">----------</option>
+          <option value="">----------</option>
         </select>
-
-       </div>
-       <div class="add-to-cart-container">
-        <button id="add-to-cart">ADD TO CART <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"></path>
-            </svg></button>
-       </div>
-
+      </div>
+      <div class="add-to-cart-container">
+        <button id="add-to-cart">
+          ADD TO CART
+          <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.11108 5.74396L0.361084 5.74396L0.361084 7.24396L1.11108 7.24396L1.11108 5.74396ZM27.1487 7.02429C27.4416 6.7314 27.4416 6.25652 27.1487 5.96363L22.3757 1.19066C22.0828 0.897765 21.6079 0.897765 21.315 1.19066C21.0221 1.48355 21.0221 1.95843 21.315 2.25132L25.5577 6.49396L21.315 10.7366C21.0221 11.0295 21.0221 11.5044 21.315 11.7973C21.6079 12.0902 22.0828 12.0902 22.3757 11.7973L27.1487 7.02429ZM1.11108 7.24396L26.6183 7.24396L26.6183 5.74396L1.11108 5.74396L1.11108 7.24396Z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
-
-   </div>
-
-
+  </div>
 </div>
 
-
-
 <style>
-    .custom-grid-container
-    {
-        width: 100%;
-        max-width: 1440px;
-        margin: 0px auto;
-        padding:0px 16px;
-        margin-top:30px;
-        margin-bottom:30px;
-    }
-    .product-grid-wrapper 
-    {
-        display:flex;
-        flex-wrap:wrap;
-        flex-direction: row;
-    }
-    .product-item 
-    {
-        width:50%;
-    }
-    .product-item img 
-    {
-        width:100%;
-        height:auto;   
-        padding:2px;
-    }
-    .product-popup 
-    {
-        position:fixed;
-        padding:0;
-        margin:0;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background:#bfbfbf5c;
-        z-index:9;
-        display:none;
-        
-    }
-    .product-popup-body
-    {
-        width:331px;
-        height:475px;
-        top:20%;
-        margin:0px auto;
-        position:relative;
-        background-color:#ffffff;
-        padding:36px 20px 25px 20px;
-    }
-    .close-popup 
-    {
-        position: absolute;
-        right: 0;
-        margin-right: 15px;
-        text-decoration: none;
-        font-family: 'Jost';
-        color: #000;
-        font-size: 19px;
-        margin-top: -30px;
-    }
-    .product-image-info-container 
-    {
-        display: flex;
-        flex-direction: row;
-        gap: 8px;
-    }
-    .product-image-info-container .product-image
-    {
-        width:100%;
-        min-width:120px;
-    }
-    .product-image-info-container .product-image img 
-    {
-        height: 100%;
-        object-fit: cover;
-    }
-     .product-image-info-container .product-title 
-    {
-        font-family: 'Jost';
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 120%;
-        color: #000;
-        margin-bottom:20px;
-    }
-     .product-image-info-container .product-description p 
-    {
-        font-size: 14px;
-        font-weight: 300;
-        color: #000;
-        line-height: 110%;
-        margin:unset;
-    }
-     .product-image-info-container .product-info 
-     {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        }
-    .product-price 
-    {
-        margin-bottom:12px;
-    }
-    .product-color-container 
-    {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-    .color-container
-    {
-        width:50%;
-        height: 40px;
-        margin-bottom:5px;
-    }
-    .color-container button 
-    {
-        width: 98%;
-        background-color: #fff;
-        height: 40px;
-        border: 1px solid #000;
-        margin-left: 3px;
-        cursor:pointer;
-    }
+  .custom-grid-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0px auto;
+    padding: 0px 16px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .product-grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .product-item {
+    width: 50%;
+  }
+  .product-item img {
+    width: 100%;
+    height: auto;
+    padding: 2px;
+  }
+  .product-popup {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #bfbfbf5c;
+    z-index: 9;
+    display: none;
+  }
+  .product-popup-body {
+    width: 331px;
+    height: 475px;
+    top: 20%;
+    margin: 0px auto;
+    position: relative;
+    background-color: #ffffff;
+    padding: 36px 20px 25px 20px;
+  }
+  .close-popup {
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    text-decoration: none;
+    font-family: 'Jost';
+    color: #000;
+    font-size: 19px;
+    margin-top: -30px;
+  }
+  .product-image-info-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+  .product-image-info-container .product-image {
+    width: 100%;
+    min-width: 120px;
+  }
+  .product-image-info-container .product-image img {
+    height: 100%;
+    object-fit: cover;
+  }
+  .product-image-info-container .product-title {
+    font-family: 'Jost';
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  .product-image-info-container .product-description p {
+    font-size: 14px;
+    font-weight: 300;
+    color: #000;
+    line-height: 110%;
+    margin: unset;
+  }
+  .product-image-info-container .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  .product-price {
+    margin-bottom: 12px;
+  }
+  .product-color-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .color-container {
+    width: 50%;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+  .color-container button {
+    width: 98%;
+    background-color: #fff;
+    height: 40px;
+    border: 1px solid #000;
+    margin-left: 3px;
+    cursor: pointer;
+  }
 
-    .product-color-container p,.product-size-container p 
-    {
-        display: inline-block;
-        width: 100%;
-        margin: unset;
-        font-family: 'Jost';
-        font-size: 14px;
-        margin-top: 10px;
+  .product-color-container p,
+  .product-size-container p {
+    display: inline-block;
+    width: 100%;
+    margin: unset;
+    font-family: 'Jost';
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .product-size-container select {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 14px 14px;
+    padding-left: 13px;
+  }
+  .product-size-container select:focus {
+    outline: none;
+  }
+  .product-size-container::after {
+    content: '|';
+    position: absolute;
+    font-size: 39px;
+    margin-top: -19px;
+    right: 50px;
+    color: #767676;
+  }
+  .add-to-cart-container button svg {
+    fill: #ffffff;
+    margin-left: 15px;
+  }
+  .add-to-cart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  .add-to-cart-container button {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 12px 55px 12px 95px;
+    cursor: pointer;
+  }
+  @media (min-width: 1025px) {
+    .product-item {
+      width: 33%;
+      margin-bottom: -25px;
     }
-    .product-size-container select 
-    {
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-size: 16px;
-        outline:none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background-image:
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right .7rem center;
-  background-size: 14px 14px;
-  padding-left:13px;
+    .product-item img {
+      padding: 20px;
     }
-     .product-size-container select:focus 
-     {
-        outline:none;
-    }
-    .product-size-container::after
-    {
-        content: "|";
-        position: absolute;
-        font-size: 39px;
-        margin-top: -19px;
-        right: 50px;
-        color: #767676;
-    }
-    .add-to-cart-container button svg 
-    {
-        fill:#ffffff;
-        margin-left:15px;
-    }
-    .add-to-cart-container 
-    {
-        display: flex;
-        justify-content: center;
-        margin-top: 35px;
-    }
-    .add-to-cart-container button 
-    {
-        background-color: #000;
-        color: #fff;
-        border: 1px solid #000;
-        padding: 12px 55px 12px 95px;
-        cursor:pointer;
-    }
-      @media (min-width: 1025px) {
-    
-    .product-item 
-    {
-        width:33%;
-        margin-bottom: -25px;
-    }
-       .product-item img 
-       {
-        padding:20px;
-    }
-
-    }
+  }
 </style>
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-
-    document.querySelectorAll('.product-item').forEach(function(item){
-
-        item.addEventListener('click',function(e){
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.product-item').forEach(function (item) {
+      item.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector('.product-image').innerHTML = "";
-        document.querySelector('.product-title').innerHTML = "";
-        document.querySelector('.product-price').innerHTML = "";
-        document.querySelector('.product-description').innerHTML = "";
-        
+        document.querySelector('.product-image').innerHTML = '';
+        document.querySelector('.product-title').innerHTML = '';
+        document.querySelector('.product-price').innerHTML = '';
+        document.querySelector('.product-description').innerHTML = '';
 
         let productId = this.querySelector('a').getAttribute('data-id');
         let ProductHandle = this.querySelector('a').getAttribute('data-handle');
-        let productDetails = fetch(`/products/${ProductHandle}.js`).then(res=>res.json());
+        let productDetails = fetch(`/products/${ProductHandle}.js`).then((res) => res.json());
         let colorContainer = document.querySelector('.product-color-container');
-             colorContainer.innerHTML = `<p>Color</p>`;
+        colorContainer.innerHTML = `<p>Color</p>`;
         let productOption = document.querySelector('.product-size-container select');
 
-        
+        productDetails.then((product) => {
+          document.querySelector(
+            '.product-image'
+          ).innerHTML = `<img src=${product.images[0]} alt="${product.title}" style="max-width:100%">`;
+          document.querySelector('.product-title').innerHTML = product.title;
+          document.querySelector('.product-price').innerHTML = (product.price / 100).toLocaleString('en-US', {
+            style: 'currency',
+            currency: Shopify.currency.active,
+          });
+          document.querySelector('.product-description').innerHTML = product.description;
 
-        
-        productDetails.then(product => {
-            
-            document.querySelector('.product-image').innerHTML = `<img src=${product.images[0]} alt="${product.title}" style="max-width:100%">`;
-            document.querySelector('.product-title').innerHTML = product.title;
-            document.querySelector('.product-price').innerHTML = (product.price / 100).toLocaleString('en-US',{style:'currency',currency:Shopify.currency.active});
-             document.querySelector('.product-description').innerHTML = product.description;
+          const optionMap = {};
+          product.options.forEach((opt, index) => {
+            optionMap[opt.name.toLowerCase()] = index;
+          });
+          const colorIdx = optionMap['color'];
+          const sizeIdx = optionMap['size'];
 
-             const optionMap = {};
-            product.options.forEach((opt,index)=>{
-                optionMap[opt.name.toLowerCase()] = index;
-            });
-            const colorIdx = optionMap["color"];
-            const sizeIdx = optionMap["size"];
+          const colors = [...new Set(product.variants.map((v) => v.options[colorIdx]))];
 
-             const colors = [...new Set(product.variants.map(v => v.options[colorIdx]))];
-
-            colors.forEach(color =>{
-            const colorWrapper = document.createElement("div"); 
-             const btn = document.createElement("button");
-             colorWrapper.classList.add("color-container");
-             btn.textContent = color;
-             btn.dataset.color = color;
-             btn.classList.add("color-btn");
+          colors.forEach((color) => {
+            const colorWrapper = document.createElement('div');
+            const btn = document.createElement('button');
+            colorWrapper.classList.add('color-container');
+            btn.textContent = color;
+            btn.dataset.color = color;
+            btn.classList.add('color-btn');
             colorWrapper.style.backgroundColor = color;
             colorWrapper.appendChild(btn);
             colorContainer.appendChild(colorWrapper);
-            btn.addEventListener("click",()=>{
-                
-                productOption.innerHTML = "";
-                let defaultOption = document.createElement('option');
-                    defaultOption.value = "";
-                    defaultOption.textContent = "Choose your size";
-                    productOption.appendChild(defaultOption);
+            btn.addEventListener('click', () => {
+              productOption.innerHTML = '';
+              let defaultOption = document.createElement('option');
+              defaultOption.value = '';
+              defaultOption.textContent = 'Choose your size';
+              productOption.appendChild(defaultOption);
 
-                    document.querySelectorAll('.color-btn').forEach(btn =>{
-                    btn.style.backgroundColor = "#ffffff"
-                    btn.style.color = "#000"
-                    });
-                    if(color !="White")
-                    {
-                         btn.style.backgroundColor = color;
-                         btn.style.borderColor = color;
-                        btn.style.color = "#fff";
-                    }
-                    document.getElementById("selected-product-color").value = color;
-                    
-                    showSizes(color);
+              document.querySelectorAll('.color-btn').forEach((btn) => {
+                btn.style.backgroundColor = '#ffffff';
+                btn.style.color = '#000';
+              });
+              if (color != 'White') {
+                btn.style.backgroundColor = color;
+                btn.style.borderColor = color;
+                btn.style.color = '#fff';
+              }
+              document.getElementById('selected-product-color').value = color;
 
+              showSizes(color);
             });
-                
+          });
+
+          function showSizes(color) {
+            let sizeAvailable = product.options[sizeIdx].values.map((sizeValue) => {
+              const variant = product.variants.find(
+                (v) => v.options[colorIdx] === color && v.options[sizeIdx] === sizeValue
+              );
+              return {
+                size: sizeValue,
+                id: variant ? variant.id : null,
+                available: variant ? variant.available : false,
+              };
             });
 
-            function showSizes(color){
-               
-                let sizeAvailable = product.options[sizeIdx].values.map(sizeValue => {
-                const variant = product.variants.find(
-                    v=>v.options[colorIdx] === color && v.options[sizeIdx] === sizeValue
-                );
-                return {
-                    size : sizeValue,
-                    id : variant ? variant.id : null,
-                    available : variant ? variant.available : false
-                }
-                })
+            sizeAvailable.forEach((product) => {
+              if (product.id != null && product.available != false) {
+                const option = document.createElement('option');
+                option.value = product.id;
+                option.textContent = product.size;
+                productOption.appendChild(option);
+              }
+            });
+          }
 
-                sizeAvailable.forEach(product =>{
-
-                    if(product.id !=null && product.available != false){
-                    
-                        const option = document.createElement('option');
-                        option.value = product.id;
-                        option.textContent = product.size;
-                        productOption.appendChild(option);
-
-                    }
-                
-                });
-
-            
-            }
-
-             document.querySelector('.product-popup ').style.display="block";
-
+          document.querySelector('.product-popup ').style.display = 'block';
         });
+      });
+    });
 
+    document.querySelector('.close-popup').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector('.product-popup ').style.display = 'none';
+    });
+
+    document.getElementById('product-size').addEventListener('change', function () {
+      const selectedVariantId = this.value;
+      const selectedOptionText = this.options[this.selectedIndex].text;
+      document.getElementById('selected-product-size').value = selectedOptionText;
+      document.getElementById('add-to-cart').setAttribute('data-selected-id', selectedVariantId);
+    });
+
+    document.getElementById('add-to-cart').addEventListener('click', function (e) {
+      e.preventDefault();
+      let selectedProductColor = document.getElementById('selected-product-color').value;
+      let selectedProductSize = document.getElementById('selected-product-size').value;
+      let variantId = this.getAttribute('data-selected-id');
+
+      if (selectedProductColor == '' || selectedProductSize == '' || variantId == null) {
+        alert('Please select color and size');
+        return false;
+      }
+
+      let combinedProductToBeAdded = false;
+
+      if (selectedProductColor == 'Black' && selectedProductSize == 'M') {
+        checkForWinterJacketAddedAlready().then(function (res) {
+          if (res == true) {
+            addItemToCart(variantId).then(function (res) {
+              refreshCartAndClosePopUp();
+            });
+          } else {
+            addItemToCart(variantId).then(function (res) {
+              addItemToCart(44675995959340).then(function (res) {
+                refreshCartAndClosePopUp();
+              });
+            });
+          }
         });
-    
+      } else {
+        addItemToCart(variantId).then(function (res) {
+          refreshCartAndClosePopUp();
+        });
+      }
     });
 
-    document.querySelector('.close-popup').addEventListener('click',function(e){
-    e.preventDefault();
-     document.querySelector('.product-popup ').style.display="none";
-    });
-
-    document.getElementById('product-size').addEventListener('change',function(){
-    
-        const selectedVariantId = this.value;
-        const selectedOptionText = this.options[this.selectedIndex].text;
-      document.getElementById("selected-product-size").value = selectedOptionText;
-      document.getElementById("add-to-cart").setAttribute('data-selected-id',selectedVariantId);
-    });
-
-    document.getElementById("add-to-cart").addEventListener('click',function(e){
-        e.preventDefault();
-        let selectedProductColor = document.getElementById("selected-product-color").value;
-        let selectedProductSize = document.getElementById("selected-product-size").value;
-        let variantId = this.getAttribute("data-selected-id");
-
-        let combinedProductToBeAdded = false;
-
-        if(selectedProductColor == "Black" && selectedProductSize == "M"){
-            
-            checkForWinterJacketAddedAlready().then(function(res){
-            
-                if(res == true){
-                addItemToCart(variantId).then(function(res){
-                
-                });
-                }else{
-                addItemToCart(variantId).then(function(res){
-
-                    addItemToCart(44675995959340).then(function(res){
-                        document.querySelector('.product-popup ').style.display="none";
-                    });
-                
-                });
-                
-                }
-            
+    function addItemToCart(variantId) {
+      return new Promise((resolve, reject) => {
+        try {
+          fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              id: variantId,
+              quantity: 1,
+            }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              resolve(true);
             });
-           
-        
-        }else{
-        
-            addItemToCart(variantId).then(function(res){
-                document.querySelector('.product-popup ').style.display="none";
-            });
+        } catch (error) {
+          reject(error);
         }
-        
-    
-    });
-
-    function addItemToCart(variantId){
-    
-        return new Promise((resolve,reject) => {
-        
-            try{
-                fetch("/cart/add.js",{
-                method : "POST",
-                headers : {"Content-Type" : "application/json"},
-                body : JSON.stringify({
-                    id:variantId,
-                    quantity : 1
-                })
-
-                })
-
-                .then(res => res.json())
-                   .then(data =>{
-                    resolve(true);
-                }); 
-            }catch(error){
-                reject(error)
-           
-            }
-         
-        
-        });
-       
-    }
-    
-    function checkForWinterJacketAddedAlready()
-    {
-        return new Promise((resolve,reject)=>{
-        
-            try{
-
-                fetch("/cart.js").then(res => res.json())
-                .then(cart => {
-                const jacketAlready = cart.items.some(item => item.product_title === "Soft Winter Jacket");
-
-                if(jacketAlready){
-                    resolve(true);
-                }else{
-                    resolve(false);
-                }
-                
-                })
-
-            }catch(error){
-                reject(error);
-            }
-
-        });
+      });
     }
 
-});
+    function checkForWinterJacketAddedAlready() {
+      return new Promise((resolve, reject) => {
+        try {
+          fetch('/cart.js')
+            .then((res) => res.json())
+            .then((cart) => {
+              const jacketAlready = cart.items.some((item) => item.product_title === 'Soft Winter Jacket');
 
+              if (jacketAlready) {
+                resolve(true);
+              } else {
+                resolve(false);
+              }
+            });
+        } catch (error) {
+          reject(error);
+        }
+      });
+    }
+
+    function refreshCartAndClosePopUp() {
+      window.location.href = '/cart';
+    }
+  });
 </script>
 
 {% schema %}
 {
-
-"name":"Custom Product Grid",
-"settings":[
-{
-    "type": "product_list",
-    "id": "selected_products",
-    "label": "Select Product"
-},
-{
-    "type": "text",
-    "id":"section_title",
-    "label": "Section Title"
+  "name": "Custom Product Grid",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "selected_products",
+      "label": "Select Product"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product Grid"
+    }
+  ]
 }
-
-],
-"presets":[
-{
-    "name":"Custom Product Grid"
-}
-
-]
-
-}
-
 {% endschema %}
